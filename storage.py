@@ -3,7 +3,7 @@ import json
 class JSONStorage():
 
     def __init__(self):
-        ...
+        pass
 
     def load(self): 
         try:
@@ -12,10 +12,11 @@ class JSONStorage():
         except FileNotFoundError:
             data = {
                 "habits": {},
-                "sessions": {},
+                "sessions": [],
                 "progress": {}
             }
         return data
 
-    def save(self):
-        ...
+    def save(self, data):
+        with open("data.json", "w") as f:
+            json.dump(data, f)
